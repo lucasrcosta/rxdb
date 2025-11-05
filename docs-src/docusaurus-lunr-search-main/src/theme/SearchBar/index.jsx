@@ -64,12 +64,12 @@ const Search = props => {
   const getSearchDoc = () =>
     process.env.NODE_ENV === "production"
       ? fetch(`${assetUrl}${pluginData.fileNames.searchDoc}`).then((content) => content.json())
-      : Promise.resolve({});
+      : fetch(`${baseUrl}search-doc.json`).then((content) => content.json());
 
   const getLunrIndex = () =>
     process.env.NODE_ENV === "production"
       ? fetch(`${assetUrl}${pluginData.fileNames.lunrIndex}`).then((content) => content.json())
-      : Promise.resolve([]);
+      : fetch(`${baseUrl}lunr-index.json`).then((content) => content.json());
 
   const loadAlgolia = () => {
     if (!initialized.current) {
