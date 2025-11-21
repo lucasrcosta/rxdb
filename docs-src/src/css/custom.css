@@ -4462,3 +4462,40 @@ footer a:visited {
   clip-path: none !important;
   z-index: 10;
 }
+
+/* Mobile search dropdown fix - use relative positioning like desktop */
+@media (max-width: 600px) {
+  /* Make search input occupy full width - override specific selectors */
+  .navbar__search {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .navbar__search-input {
+    width: 100% !important;
+  }
+
+  .navbar__search #search_input_react {
+    width: 100% !important;
+  }
+
+  .algolia-autocomplete {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .algolia-autocomplete input {
+    width: 100% !important;
+  }
+
+  /* Override algolia.css fixed positioning with relative (like desktop) */
+  .algolia-autocomplete.algolia-autocomplete-left .ds-dropdown-menu {
+    position: relative !important;
+    left: 0 !important;
+    right: auto !important;
+    top: -6px !important;
+    width: 100% !important;
+    min-width: max(100%, 300px) !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+}
